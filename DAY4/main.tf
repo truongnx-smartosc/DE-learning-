@@ -30,3 +30,10 @@ resource "google_compute_instance" "vm_instance" {
     ssh-keys = "truongnx1:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM1DNeZb+r0vjTGHphtwwnLz8GgjpTC0jLaZsTDMvW3d nguyenxuantruong@truongnguyen.local"
   }
 }
+
+resource "google_storage_bucket" "yuchi-bucket" {
+  name     = "my-terraform-bucket-0393882s"  
+  location = "US"
+
+  uniform_bucket_level_access = true 
+}
