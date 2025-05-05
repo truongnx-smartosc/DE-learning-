@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - DB_HOST=postgres        # Thay từ localhost thành tên dịch vụ postgres
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=030201
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 030201
+    ports:
+      - "5432:5432"
