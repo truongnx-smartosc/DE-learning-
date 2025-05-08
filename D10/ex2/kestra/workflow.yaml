@@ -1,0 +1,16 @@
+# kestra/workflow.yaml
+id: data_pipeline_workflow
+namespace: default
+
+tasks:
+  - id: produce-kafka
+    type: io.kestra.plugin.java.Java
+    javaClass: "your.package.ProduceKafkaTask" # Thay bằng mã Java hoặc lệnh để chạy produce_kafka.py
+
+  - id: run-spark
+    type: io.kestra.plugin.spark.Spark
+    name: Spark Processing
+    config:
+      driver: "spark-submit"
+      args:
+        - "/path/to/spark_processing.py"
